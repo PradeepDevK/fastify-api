@@ -1,21 +1,25 @@
 // Import our Controllers
 const carController = require('../controllers/carController')
 
+// Import Swagger documentation
+const documentation = require('./documentation/carApi')
+
 const routes = [{
         method: 'GET',
         url: '/api/cars',
-        handler: carController.getCars
+        handler: carController.getCars  
     },
     {
         method: 'GET',
         url: '/api/cars/:id',
-        handler: carController.getSingleCar
+        handler: carController.getSingleCar,
+        schema: documentation.getSingleCar
     },
     {
         method: 'POST',
         url: '/api/cars',
         handler: carController.addCar,
-        schema: carController.addCarSchema
+        schema: documentation.addCarSchema
     },
     {
         method: 'PUT',

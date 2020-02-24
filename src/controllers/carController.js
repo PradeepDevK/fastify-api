@@ -40,12 +40,8 @@ exports.updateCar = async (req, reply) => {
     try {
         const id = req.params.id
         const car = req.body
-        const {
-            ...updateData
-        } = car
-        const update = await Car.findByIdAndUpdate(id, updateData, {
-            new: true
-        })
+        const { ...updateData } = car
+        const update = await Car.findByIdAndUpdate(id, updateData, { new: true })
         return update
     } catch (err) {
         throw boom.boomify(err)

@@ -11,9 +11,17 @@ exports.options = {
             url: 'https://swagger.io',
             description: 'Find more info here'
         },
-        host: 'localhost',
+        host: 'localhost:8099',
         schemes: ['http'],
         consumes: ['application/json'],
-        produces: ['application/json']
+        produces: ['application/json'],
+        tags:[],
+        securityDefinitions: {
+            apiKey: {
+                type: 'apiKey',
+                name: 'apiKey',
+                in: 'header'
+            }
+        }
     }
 }
